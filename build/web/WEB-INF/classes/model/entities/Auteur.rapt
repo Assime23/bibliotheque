@@ -1,0 +1,8 @@
+model/entities/Auteur_.java
+model/entities/Dicipline_.java
+model/entities/Emprunt_.java
+model/entities/Domaine_.java
+model/entities/Filliere_.java
+model/entities/Utilisateur_.java
+model/entities/Typedocument_.java
+model/entities/Document_.java

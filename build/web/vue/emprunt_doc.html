@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+  <html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Emprunter document</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="bloc">
+      <div class="container">
+          
+      <ul class="entete" >
+          <li><a href="Acceuil1.html">Accueil</a></li>
+          <li>
+              <label for="menu_deroulant"></label>
+              <select id="menu_deroulant" class="menu-deroulant" onchange="changerPage()">
+              <option value="" style="font-weight: bold;">Menu</option>
+              <option value="enregistrer_doc">Enregistrer un document</option>
+              <option value="emprunt_doc">Emprunter un document</option>
+              </select>
+              <script>
+                  function changerPage() {
+                    let menuDeroulant = document.getElementById("menu_deroulant");
+                    let optionSelectionnee = menuDeroulant.options[menuDeroulant.selectedIndex].value;
+                    if (optionSelectionnee === "enregistrer_doc") {
+                      window.location.href = "document.html";
+                    } else if (optionSelectionnee === "emprunt_doc") {
+                      window.location.href = "emprunt_doc.html";
+                    }
+                  }
+              </script>
+                  <script src="fonction.js"></script>
+                
+          </li>
+          <li>
+              <form action="/search" method="get">
+                  <label for="search"></label>
+                  <input type="text" id="search" name="q" placeholder="Entrez votre recherche ici...">
+                  <button type="submit" id="search-btn">Rechercher</button>
+              </form>
+          </li>
+          <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      </div>
+      </div>
+    </header>
+    <h1 class="couleur">Emprunter un document</h1>
+
+    <!-- Formulaire de recherche par nom de document -->
+    <form>
+      <div class="form-group">
+        <label for="nom_doc">Nom du document ou auteur :</label>
+        <input type="text" id="nom_doc" name="nom_doc">
+      </div>
+        <input type="submit" value="Rechercher">
+    </form>
+
+    <!-- Tableau pour afficher les résultats de la recherche -->
+    <section>
+            <table>
+              <thead>
+                <tr>
+                  <th>Documents </th>
+                  <th> Disponible </th>
+                </tr>
+              </thead>
+            <tbody>
+                <tr>
+                  <td>Document 1</td>
+                  <td><button onclick="emprunter('Document 1')">Emprunter</button></td>
+                </tr>
+                <tr>
+                  <td>Document 2</td>
+                  <td><button onclick="emprunter('Document 2')">Emprunter</button></td>
+                </tr>
+                        <!-- Ajoutez ici les autres résultats de la recherche -->
+            </tbody>
+            </table>
+    </section>
+    <!-- Liste des documents empruntés -->
+    <h2>Documents empruntés :</h2>
+    <ul id="liste_emprunts">
+    </ul>
+
+    <!-- Script JavaScript pour gérer les emprunts -->
+    <script>
+      // Tableau pour stocker les noms des documents empruntés
+      let documentsEmpruntes = [];
+
+      // Fonction pour ajouter un document à la liste des emprunts
+      function ajouterEmprunt(nomDoc) {
+     // Ajouter le nom du document à la liste des emprunts avec la date et l'heure courantes
+        let dateCourante = new Date();
+        let dateString = `${dateCourante.getDate()}/${dateCourante.getMonth() + 1}/${dateCourante.getFullYear()} à ${dateCourante.getHours()}:${dateCourante.getMinutes()}`;
+        documentsEmpruntes.push({nom: nomDoc, date: dateString});
+
+        // Mettre à jour l'affichage de la liste des emprunts
+        let listeEmprunts = document.getElementById("liste_emprunts");
+        let nouvelElement = document.createElement("li");
+        nouvelElement.textContent = `${nomDoc} (${dateString})`;
+        listeEmprunts.appendChild(nouvelElement);
+        }
+
+      function emprunter(nomDoc) {
+        // Vérifier si le document est déjà emprunté
+        let index = documentsEmpruntes.findIndex(doc => doc.nom === nomDoc);
+        if (index !== -1) {
+          // Document déjà emprunté
+            alert("Ce document est déjà emprunté !");
+        } else {
+         // Ajouter le document à la liste des emprunts avec la date et l'heure courantes
+            ajouterEmprunt(nomDoc);
+            alert("Le document a été emprunté avec succès !");
+        }
+        }
+
+    </script>
+  </body>
+
+
+
+  <footer>
+    <ul class="foter">
+        <li><a href="Apropos.html">A propos de la Biliothèque</a></li>
+        <li><a href="Liens.html">Liens utiles</a></li>
+        <p>  Copyright © 2023 </p>
+        <li><a href="Conditions.html">Conditions d'utilisation</a></li>
+        <li><a href="Faq.html">Faq</a></li>
+    </ul>
+  </footer>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</html>

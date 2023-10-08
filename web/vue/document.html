@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enregistrer document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="bloc">
+        <div class="container">
+            <a href="" class="logo-link">
+                <img src="images/logo1.jpg" alt="Logo" class="logo-img">
+            </a>
+        <ul class="entete" >
+            <li><a href="">Accueil</a></li>
+            <li>
+                <label for="menu_deroulant"></label>
+                <select id="menu_deroulant" class="menu-deroulant" onchange="changerPage()">
+                <option value="" style="font-weight: bold;">Menu</option>
+                <option value="enregistrer_doc">Enregistrer un document</option>
+                <option value="emprunt_doc">Emprunter un document</option>
+                </select>
+                <script>
+                    function changerPage() {
+                      let menuDeroulant = document.getElementById("menu_deroulant");
+                      let optionSelectionnee = menuDeroulant.options[menuDeroulant.selectedIndex].value;
+                      if (optionSelectionnee === "enregistrer_doc") {
+                        window.location.href = "document.html";
+                      } else if (optionSelectionnee === "emprunt_doc") {
+                        window.location.href = "emprunt_doc.html";
+                      }
+                    }
+                </script>
+                    <script src="fonction.js"></script>
+                  
+            </li>
+            <li>
+                <form action="/search" method="get">
+                    <label for="search"></label>
+                    <input type="text" id="search" name="q" placeholder="Entrez votre recherche ici...">
+                    <button type="submit" id="search-btn">Rechercher</button>
+                </form>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        </div>
+        </div>
+    </header>
+
+    <h1 class="couleur">Fiche d'enregistrement des documents</h1>
+    <p class = "gras"> Veuillez renseigner les champs du formulaire : </p>
+    <form>
+        <div class="form-group">
+        <label for="num_doc">Auteur :</label>
+        <input type="text" id="num_doc" name="num_doc"><br>
+        </div>
+        <div class="form-group">
+        <label for="titre_doc">Titre ou Nom du document :</label>
+        <input type="text" id="titre_doc" name="titre_doc"><br>
+        </div>
+        <div class="form-group">
+            <label for="num_doc">Discipline :</label>
+            <input type="text" id="nom_discipl" name="num_doc"><br>
+        </div>
+        <div class="form-group">
+        <label for="etat_doc">État :</label>
+        <input type="text" id="etat_doc" name="etat_doc"><br>
+        </div>
+        <div class="form-group">
+            <label for="num_typ">Type :</label>
+            <select id="num_typ" name="num_doc" class="custom-select">
+              <option value="livres">livres</option>
+              <option value="DvD">Dvd</option>
+              <option value="polycopé">polycopé</option>
+              <option value="autres">autres</option>
+            </select><br>
+        </div>
+        <div class="form-group">
+        <label for="resume_doc">Résumé :</label>
+        <textarea id="resume_doc" name="resume_doc"></textarea><br>
+        </div>
+        <div class="form-group">
+        <label for="mots_cles_doc">Mots clés :</label>
+        <input type="text" id="mots_cles_doc" name="mots_cles_doc"><br>
+        </div>
+        <input type="submit" value="Enregistrer">
+    </form>
+      
+        <footer>
+            <ul class="foter">
+        
+            <li><a href="Apropos.html">A propos de la Biliothèque</a></li>
+            <li><a href="Liens.html">Liens utiles</a></li>
+            <p>  Copyright © 2023 </p>
+            <li><a href="Conditions.html">Conditions d'utilisation</a></li>
+            <li><a href="Faq.html">Faq</a></li>
+            </ul>
+        </footer>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

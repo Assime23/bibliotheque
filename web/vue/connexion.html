@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+        <header>
+            <div class="bloc">
+            <div class="container">
+            <ul class="entete" >
+                <li><a href="Acceuil1.html">Accueil</a></li>
+                <li>
+                    <label for="menu_deroulant"></label>
+                    <select id="menu_deroulant" class="menu-deroulant" onchange="changerPage()">
+                    <option value="" style="font-weight: bold;">Menu</option>
+                    <option value="enregistrer_doc">Enregistrer un document</option>
+                    <option value="emprunt_doc">Emprunter un document</option>
+                    </select>
+                    <script>
+                        function changerPage() {
+                          let menuDeroulant = document.getElementById("menu_deroulant");
+                          let optionSelectionnee = menuDeroulant.options[menuDeroulant.selectedIndex].value;
+                          if (optionSelectionnee === "enregistrer_doc") {
+                            window.location.href = "document.html";
+                          } else if (optionSelectionnee === "emprunt_doc") {
+                            window.location.href = "emprunt_doc.html";
+                          }
+                        }
+                    </script>
+                        <script src="fonction.js"></script>
+                        <script src="livre.js"></script>
+                      
+                </li>
+                <li>
+                    <form action="/search" method="get">
+                        <label for="search"></label>
+                        <input type="text" id="search" name="q" placeholder="Entrez votre recherche ici...">
+                        <button type="submit" id="search-btn">Rechercher</button>
+                    </form>
+                </li>
+                <li><a href="">Contact</a></li>
+            </ul>
+            </div>
+            </div>
+        </header>
+        <br>
+        <section class="tab">
+          <table>
+            <thead>
+              <tr>
+                <th>Titre</th>
+                <th>Résumé</th>
+                <th>État</th>
+                <th>Emprunter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Titre du livre 1</td>
+                <td>Résumé du livre 1</td>
+                <td>Disponible</td>
+                <td><button class="emprunter-btn">Emprunter</button></td>
+              </tr>
+              <tr>
+                <td>Titre du livre 2</td>
+                <td>Résumé du livre 2</td>
+                <td>Prêté</td>
+                <td><button class="emprunter-btn">Emprunter</button></td>
+              </tr>
+              <tr>
+                <td>Titre du livre 3</td>
+                <td>Résumé du livre 3</td>
+                <td>Disponible</td>
+                <td><button class="emprunter-btn">Emprunter</button></td>
+              </tr>
+              <!-- Ajouter les autres livres ici -->
+            </tbody>
+          </table>
+          
+          
+        </section>  
+</body>
+<footer>
+  <ul class="foter">
+      
+      <li><a href="Apropos.html">A propos de la Biliothèque</a></li>
+      <li><a href="Liens.html">Liens utiles</a></li>
+      <p>  Copyright © 2023 </p>
+      <li><a href="Conditions.html">Conditions d'utilisation</a></li>
+      <li><a href="Faq.html">Faq</a></li>
+  </ul>
+</footer>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</html>

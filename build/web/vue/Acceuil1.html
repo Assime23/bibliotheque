@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #F5F6F9;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #063547;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #47B99E;
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav ul li a.logout {
+            color: red;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: blue;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="tel"] {
+            width: 100%;
+            height: 30px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            color: black;
+        }
+
+        input[type="submit"] {
+            background-color: #47B99E;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: auto;
+            max-width: 20%;
+            margin-left: 50px;
+            text-align: center;
+        }
+
+        p {
+            margin-top: 20px;
+            text-align: center;
+            color: #47B99E;
+        }
+
+        footer {
+            padding: 20px;
+            background-color: #063547;
+            color: white;
+            text-align: center;
+        }
+
+        footer ul.foter {
+            list-style-type: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer ul.foter li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        footer ul.foter li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+   
+ 
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Accueil</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="bloc">
+            <div class="container">
+                <a href="" class="logo-link">
+                    <img src="images/logo1.jpg" alt="Logo" class="logo-img">
+                </a>
+                         <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#" class="logout">Déconnecter</a></li>
+            </ul>
+        </nav>
+                <nav>
+                    <ul class="entete">
+                        <li><a href="">Accueil</a></li>
+                        <li>
+                            <label for="menu_deroulant"></label>
+                            <select id="menu_deroulant" class="menu-deroulant" onchange="changerPage()">
+                                <option value="" style="font-weight: bold;">Menu</option>
+                                <option value="enregistrer_doc">Enregistrer un document</option>
+                                <option value="emprunt_doc">Emprunter un document</option>
+                            </select>
+                            <script>
+                                function changerPage() {
+                                    let menuDeroulant = document.getElementById("menu_deroulant");
+                                    let optionSelectionnee = menuDeroulant.options[menuDeroulant.selectedIndex].value;
+                                    if (optionSelectionnee === "enregistrer_doc") {
+                                        window.location.href = "document.html";
+                                    } else if (optionSelectionnee === "emprunt_doc") {
+                                        window.location.href = "emprunt_doc.html";
+                                    }
+                                }
+                            </script>
+                            <script src="fonction.js"></script>                    </li>
+                    <li>
+                        <form action="/search" method="get">
+                            <label for="search"></label>
+                            <input type="text" id="search" name="q" placeholder="Entrez votre recherche ici...">
+                            <button type="submit" id="search-btn">Rechercher</button>
+                        </form>
+                    </li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</header>
+
+<section class="slider">
+    <div class="container flex">
+        <div class="slider-text width-550px">
+            <h2>Votre Bibliothèque en Ligne</h2>
+            <h3>Pour Tous Vos<br>Besoins de Lecture</h3>
+            <p>Une collection de livres numériques variés, accessibles en quelques clics. Trouvez votre prochaine
+                lecture parmi nos romans, classiques, thrillers, non-fiction et livres pour enfants. <a
+                    href="index.html">Créez</a> un compte et empruntez instantanément un livre s'il est disponible.
+                Bienvenue dans notre univers littéraire virtuel !.</p>
+            <a href="#categories"><button type="button">Lire Plus</button></a>
+        </div>
+        <img src="images/slider-img.png" alt="image de livres" class="width-550px">
+    </div>
+</section>
+
+<section class="categories" id="categories">
+    <div class="container">
+        <div>
+            <h2>Categories de livres</h2>
+            <p>Il existe de nombreuses variantes de livres disponibles, faites votre choix!</p>
+        </div>
+        <div class="flex">
+            <div class="categorie">
+                <div class="categorie-image-container">
+                    <img src="images/cat1.png" alt="Image de livre de texte">
+                </div>
+                <h3>Manuels</h3>
+                <p>Explorez notre section manuels pour trouver des œuvres captivantes et variées.</p>
+            </div>
+            <div class="categorie">
+                <div class="categorie-image-container">
+                    <img src="images/cat2.png" alt="Image de livre de science">
+                </div>
+                <h3>Science</h3>
+                <p>Nous mettons un point d'honneur à rassembler les meilleurs livres de sciences afin de satisfaire
+                    les attentes et les intérêts de notre communauté de lecteurs.</p>
+            </div>
+            <div class="categorie">
+                <div class="categorie-image-container">
+                    <img src="images/cat3.png" alt="Image de livre d'histoire'">
+                </div>
+                <h3>Histoire</h3>
+                <p>Laissez-vous emporter par la magie des mots et explorez notre collection de livres d'Histoire</p>
+            </div>
+            <div class="categorie">
+                <div class="categorie-image-container">
+                    <img src="images/cat4.png" alt="Image de livre de texte">
+                </div>
+                <h3>Biographie</h3>
+                <p>Grâce à notre fonction de recherche avancée, vous pouvez trouver rapidement des livres spécifiques,
+                    des auteurs renommés ou des sujets particuliers liés à la Biographie.</p>
+            </div>
+            <div class="categorie">
+                <div class="categorie-image-container">
+                    <img src="images/cat5.png" alt="Image de livre de science">
+                </div>
+                <h3>Aventure</h3>
+                <p>Laissez-vous emporter par la magie des mots et explorez notre collection de livres Aventures.</p>
+            </div>
+            <div class="categorie">
+                <div class="categorie-image-container">
+                    <img src="images/cat6.png" alt="Image de livre d'histoire'">
+                </div>
+                <h3>Fantaisie</h3>
+                <p>Qu'il s'agisse de vous divertir, de vous informer ou de vous inspirer, nos livres soigneusement
+                    sélectionnés vous promettent des heures de plaisir de lecture. Plongez-vous dès maintenant dans
+                    l'univers passionnant de la Fantaisie à travers notre site !</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <ul class="foter">
+
+        <li><a href="Apropos.html">A propos de la Biliothèque</a></li>
+        <li><a href="Liens.html">Liens utiles</a></li>
+        <li>© 2023</li>
+        <li><a href="Conditions.html">Conditions d'utilisation</a></li>
+        <li><a href="Faq.html">Faq</a></li>
+    </ul>
+</footer>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
